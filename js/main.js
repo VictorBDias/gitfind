@@ -39,10 +39,14 @@ function preencheRepos(repositorios)  {
     listElement.innerHTML = "";
   
     for (repo of repositorios) {
-      const reposname = document.createTextNode(repo.name);
+      
       const reposElement = document.createElement('li');
-  
-      reposElement.appendChild(reposname);
+      var reposLink = document.createElement('a');
+      const reposname = document.createTextNode(repo.name);
+      reposLink.setAttribute('href', 'https://github.com/'+getUser()+'/'+repo.name);
+      
+      reposLink.appendChild(reposname);
+      reposElement.appendChild(reposLink);
       listElement.appendChild(reposElement);
     }
   }
